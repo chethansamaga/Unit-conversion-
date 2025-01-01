@@ -1,0 +1,74 @@
+def miles_to_kilometers(miles):
+    kilometers = miles * 1.60934
+    return kilometers
+
+def kilometers_to_miles(kilometers):
+    miles = kilometers / 1.60934
+    return miles
+
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+def fahrenheit_to_celsius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
+
+def kilograms_to_pounds(kilograms):
+    pounds = kilograms * 2.20462
+    return pounds
+
+def pounds_to_kilograms(pounds):
+    kilograms = pounds / 2.20462
+    return kilograms
+
+def main():
+    while True:
+        print("\nUnit Converter")
+        print("1. Miles to Kilometers")
+        print("2. Kilometers to Miles")
+        print("3. Celsius to Fahrenheit")
+        print("4. Fahrenheit to Celsius")
+        print("5. Kilograms to Pounds")
+        print("6. Pounds to Kilograms")
+        print("7. Exit")
+
+        try:
+            choice = int(input("Enter your choice (1-7): "))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
+
+        if choice == 7:
+            break
+
+        if choice in (1, 2, 3, 4, 5, 6):
+            try:
+                value = float(input("Enter the value to convert: "))
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+                continue
+
+            if choice == 1:  
+                result = miles_to_kilometers(value)
+                print(f"{value} miles is equal to {result:.2f} kilometers.")
+            elif choice == 2:  
+                result = kilometers_to_miles(value)
+                print(f"{value} kilometers is equal to {result:.2f} miles.")
+            elif choice == 3:
+                result = celsius_to_fahrenheit(value)
+                print(f"{value} Celsius is equal to {result:.2f} Fahrenheit.")
+            elif choice == 4:
+                result = fahrenheit_to_celsius(value)
+                print(f"{value} Fahrenheit is equal to {result:.2f} Celsius.")
+            elif choice == 5:
+                result = kilograms_to_pounds(value)
+                print(f"{value} kilograms is equal to {result:.2f} pounds.")
+            elif choice == 6:
+                result = pounds_to_kilograms(value)
+                print(f"{value} pounds is equal to {result:.2f} kilograms.")
+        else:
+            print("Invalid choice. Please enter a number between 1 and 7.")
+
+if __name__ == "__main__":
+    main()
